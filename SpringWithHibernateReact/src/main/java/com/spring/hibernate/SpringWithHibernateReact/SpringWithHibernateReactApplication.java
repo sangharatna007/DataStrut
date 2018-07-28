@@ -20,8 +20,8 @@ public class SpringWithHibernateReactApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-	 soccerService.addBarsilonaPlayer("Xavi Hernandez", "Midfielder", 6);
-		List<String> players = soccerService.getAllTeamPlayer(1);
+	 soccerService.addBarcelonaPlayer("Xavi Hernandez", "Midfielder", 6);
+		List<String> players = soccerService.getAllTeamPlayers(1);
 		for(String player : players)
 		{
 			System.out.println("Introducing Barca player => = [" + player + "]");

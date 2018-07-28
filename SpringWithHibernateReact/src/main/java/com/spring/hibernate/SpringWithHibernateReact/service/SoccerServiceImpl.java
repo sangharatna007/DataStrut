@@ -10,36 +10,26 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class SoccerServiceImpl implements SoccerService{
-
+public class SoccerServiceImpl implements SoccerService {
     @Autowired
     private PlayerRepository playerRepository;
-
     @Autowired
     private TeamRepository teamRepository;
-
-
-
-    public List<String> getAllTeamPlayer(long teamId) {
-        List<String> result = new ArrayList<>();
+    public List<String> getAllTeamPlayers(long teamId) {
+        List<String> result = new ArrayList<String>();
         List<Player> players = playerRepository.findByTeamId(teamId);
-        for(Player player : players)
-        {
+        for (Player player : players) {
             result.add(player.getName());
         }
         return result;
     }
-
-
-    public void addBarsilonaPlayer(String name, String postion, int number) {
-        Team barshilona = teamRepository.findByPlayers(1L);
-
+    public void addBarcelonaPlayer(String name, String position, int number) {
+        Team barcelona = teamRepository.findByPlayers(1l);
         Player newPlayer = new Player();
         newPlayer.setName(name);
-        newPlayer.setPosition(postion);
+        newPlayer.setPosition(position);
         newPlayer.setNum(number);
-        newPlayer.setTeam(barshilona);
+        newPlayer.setTeam(barcelona);
         playerRepository.save(newPlayer);
-
     }
 }
